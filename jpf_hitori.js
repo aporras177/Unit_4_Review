@@ -60,7 +60,7 @@ function startUp(e){
    }
 }
 
-
+//This function makes the calendar puzzle //
 
 
 
@@ -87,6 +87,7 @@ function checkSolution() {
          break;
       }
    }
+   //This function does the background color//
 
    /* If solved is still true after the loop, display an alert box */
    if (solved) alert("Congratulations! You solved the puzzle!");
@@ -99,7 +100,7 @@ function showSolution() {
       allCells[i].style.borderRadius = "";
    };
 }
-
+//this function does the style and background color//
 function drawHitori(numbers, blocks, rating) {
 
    /* Initial HTML String for the Hitori Puzzle */
@@ -141,3 +142,4 @@ function drawHitori(numbers, blocks, rating) {
 
    return htmlString;
 }
+//This function creates the rows and the lengths, the html string, and the numbers.//
