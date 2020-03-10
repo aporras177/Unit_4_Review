@@ -4,10 +4,8 @@
    New Perspectives on HTML5, CSS3, and JavaScript 6th Edition
    Tutorial 11
    Review Assignment
-
    Author: Ariahnnah Porras
-   Date:   3/09/20
-
+   Date:   03/09/2020
    Global Variables
    ================
    
@@ -16,7 +14,6 @@
       
    Function List
    =============
-
    startUp()
       Run when the web page is loaded; displays puzzle 1
       and loads the event handlers for the web page buttons.
@@ -24,12 +21,10 @@
    setupPuzzle()
       Sets up a new puzzle, adding the event handlers for
       every puzzle cell.      
-
    switchPuzzle(e)
       Swaps one puzzle for another based on the button being clicked
       by the user. Confirms the change before swapping in the
       new puzzle.
-
    findErrors()
       Highlights the errors in the Hitori puzzle in a red font.
       
@@ -39,7 +34,6 @@
    checkSolution()
       Checks the current user's puzzle to verify whether it contains
       the complete and correct solution.
-
    drawHitori(numbers, blocks, rating)
       Returns a text string of the HTML code to
       display a Hitori puzzle table based on the contents of
@@ -47,6 +41,24 @@
 	
 */
 
+// global vars section
+var allCells;
+
+// Beginning on load code (no event required to trigger)
+window.onload = startUp;
+
+function startUp(e){
+   var puzzleTitle = document.getElementById("puzzleTitle");
+   var puzzle = document.getElementById("puzzle");
+   var puzzleButtons = document.getElementsByClassName("puzzles");
+
+   puzzleTitle.innerHTML = "Puzzle 1";
+   puzzle.innerHTML = drawHitori(hitori1Numbers, hitori1Blocks, hitori1Rating);
+
+   for (var i = 0; i < puzzleButtons.length; i++) {
+      puzzleButtons[i]
+   }
+}
 
 
 
@@ -54,9 +66,6 @@
 
 
 
-
-
-         
 /* ================================================================= */
 
 function checkSolution() {
@@ -72,8 +81,8 @@ function checkSolution() {
 
       /* A cell is incorrect if it is in the block class and is not black
          or in the circle class and is not white */
-      if ( (cellClass == "blocks" && cellColor !== "black") || 
-           (cellClass == "circles" && cellColor !== "rgb(101, 101, 101)")) {
+      if ((cellClass == "blocks" && cellColor !== "black") ||
+         (cellClass == "circles" && cellColor !== "rgb(101, 101, 101)")) {
          solved = false;
          break;
       }
@@ -83,12 +92,12 @@ function checkSolution() {
    if (solved) alert("Congratulations! You solved the puzzle!");
 }
 
-function showSolution () {
+function showSolution() {
    for (var i = 0; i < allCells.length; i++) {
       allCells[i].style.color = "";
       allCells[i].style.backgroundColor = "";
       allCells[i].style.borderRadius = "";
-   };   
+   };
 }
 
 function drawHitori(numbers, blocks, rating) {
@@ -112,7 +121,7 @@ function drawHitori(numbers, blocks, rating) {
    var totalCols = numbers[0].length;
    htmlString = "<table id='hitoriGrid'>";
    htmlString += "<caption>" + rating + "</caption>";
-   
+
 
    for (var i = 0; i < totalRows; i++) {
       htmlString += "<tr>";
@@ -122,7 +131,7 @@ function drawHitori(numbers, blocks, rating) {
          else htmlString += "<td class='circles'>";
 
          htmlString += numbers[i][j];
-         htmlString +="</td>";
+         htmlString += "</td>";
       }
 
       htmlString += "</tr>";
